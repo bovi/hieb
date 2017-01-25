@@ -47,7 +47,7 @@ _files/
 
 ## Remarks
 
-Hieb is an extreme simple tool to execute commands and upload files using only SSH. It is by no mean a replacement for tools like Puppets, Chef, etc. The intention is to have a tool for one time deployments without complex dependencies.
+Hieb is an extreme simple tool to execute commands and upload files using only SSH. It is by no mean a replacement for tools like Puppets, Chef, etc. The intention is to have a tool for one time deployments without complex dependencies. I always had the feeling most tools a to complex for extreme simple machine deployments.
 
 To simplify the command execution you can add the following to your ```/etc/sudoers```:
 
