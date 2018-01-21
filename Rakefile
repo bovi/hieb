@@ -3,14 +3,15 @@ require 'rake/testtask'
 
 spec = Gem::Specification.new do |s|
   s.name         = 'hieb'
-  s.version      = '0.0.3'
-  s.date         = '2017-01-25'
+  s.version      = '0.0.6'
+  s.date         = '2018-01-21'
   s.summary      = "Simple deployment tool"
   s.description  = "Simple deployment tool using SSH and supporting command execution and file upload"
   s.authors      = ["Daniel Bovensiepen"]
   s.email        = 'daniel@bovensiepen.net'
-  s.files        = Dir.glob("{bin}/**/*") + %w(LICENSE README.md)
+  s.files        = Dir.glob("{bin,lib}/**/*") + %w(LICENSE README.md)
   s.executables  = ['hieb']
+  s.require_path = 'lib'
   s.add_runtime_dependency 'net-ssh', '~> 4.0', '>= 4.0.1'
   s.add_runtime_dependency 'net-scp', '~> 1.2', '>= 1.2.1'
   s.homepage     = 'https://github.com/bovi/hieb'
