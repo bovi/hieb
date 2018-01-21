@@ -20,7 +20,7 @@ hieb 192.168.0.1 user ~/.ssh/id_rsa
 
 Hieb is searching in the working directory for `_exe.json`. The content might look like this:
 
-```
+```json
 {
   "commands": [
     "hostname",
@@ -47,7 +47,7 @@ _files/
 
 ## Remarks
 
-Hieb is an extreme simple tool to execute commands and upload files using only SSH. It is by no mean a replacement for tools like Puppets, Chef, etc. The intention is to have a tool for one time deployments without complex dependencies. I always had the feeling most tools a to complex for extreme simple machine deployments.
+Hieb is an extreme simple tool to execute commands and upload files using only SSH. It is by no mean a replacement for tools like Puppets, Chef, etc. The intention is to have a tool for one time deployments without complex dependencies. I always had the feeling that most tools are to complex for simple machine deployments.
 
 To simplify the command execution you can add the following to your ```/etc/sudoers```:
 
