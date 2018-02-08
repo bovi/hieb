@@ -40,9 +40,14 @@ def upload_dir(scp, dir)
   end
 end
 
-def upload_files(host, user, key, upload_dir)
+def upload_files(host, user, key, upload_dir, options = {})
+  if options[:paranoid] == true
+    paranoid = true
+  else
+    paranoid = false
+  end
   # Upload deploy files
-  Net::SCP.start(host, user, :password => key, :keys => [ key ]) do |scp|
+  Net::SCP.start(host, user, :password => key, :keys => [ key ], :verify_host_key => paranoid) do |scp|
     upload_dir scp, upload_dir
   end if File.exist? upload_dir
 end
