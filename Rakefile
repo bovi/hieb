@@ -3,8 +3,8 @@ require 'rake/testtask'
 
 spec = Gem::Specification.new do |s|
   s.name         = 'hieb'
-  s.version      = '0.0.6'
-  s.date         = '2018-01-21'
+  s.version      = '0.0.8'
+  s.date         = '2018-02-08'
   s.summary      = "Simple deployment tool"
   s.description  = "Simple deployment tool using SSH and supporting command execution and file upload"
   s.authors      = ["Daniel Bovensiepen"]

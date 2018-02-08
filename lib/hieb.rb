@@ -54,7 +54,7 @@ def execute_commands(host, user, key, exe_file, options = {})
     paranoid = false
   end
   # Execute commands
-  Net::SSH.start(host, user, :password => key, :keys => [ key ], :paranoid => paranoid) do |ssh|
+  Net::SSH.start(host, user, :password => key, :keys => [ key ], :verify_host_key => paranoid) do |ssh|
     serialized = File.read(exe_file)
     data = JSON.parse(serialized)
     data['commands'].each do |cmd|
