@@ -47,9 +47,14 @@ def upload_files(host, user, key, upload_dir)
   end if File.exist? upload_dir
 end
 
-def execute_commands(host, user, key, exe_file)
+def execute_commands(host, user, key, exe_file, options = {})
+  if options[:paranoid] == true
+    paranoid = true
+  else
+    paranoid = false
+  end
   # Execute commands
-  Net::SSH.start(host, user, :password => key, :keys => [ key ]) do |ssh|
+  Net::SSH.start(host, user, :password => key, :keys => [ key ], :paranoid => paranoid) do |ssh|
     serialized = File.read(exe_file)
     data = JSON.parse(serialized)
     data['commands'].each do |cmd|
