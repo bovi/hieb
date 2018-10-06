@@ -23,19 +23,19 @@ def exe(ssh, cmd)
   end
 end
 
-def upload(scp, file)
+def upload(scp, file, local_dir)
   puts ">> UPLOAD: /#{file}"
-  scp.upload! "_files/#{file}", "/#{file}"
+  scp.upload! "#{local_dir}/#{file}", "/#{file}"
 end
 
-def upload_dir(scp, dir)
+def upload_dir(scp, dir, local_dir)
   Dir.foreach dir do |f1|
     next if f1 =~ /^\.|\..$/
     f2 = File.join(dir, f1)
     if File.directory? f2
-      upload_dir scp, f2
+      upload_dir scp, f2, local_dir
     else
-      upload scp, f2.sub!(/^#{DEFAULT_UPLOAD_DIR}\//, '')
+      upload scp, f2.sub!(/^#{local_dir}\//, ''), local_dir
     end
   end
 end
@@ -48,7 +48,7 @@ def upload_files(host, user, key, upload_dir, options = {})
   end
   # Upload deploy files
   Net::SCP.start(host, user, :password => key, :keys => [ key ], :verify_host_key => paranoid) do |scp|
-    upload_dir scp, upload_dir
+    upload_dir scp, upload_dir, upload_dir
   end if File.exist? upload_dir
 end
 
