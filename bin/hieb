@@ -5,6 +5,8 @@ require 'hieb'
 HOST = ARGV[0]
 USER = ARGV[1]
 KEY = ARGV[2]
+DIR = ARGV[3] || DEFAULT_UPLOAD_DIR
+EXE = ARGV[4] || DEFAULT_EXE_FILE
 
 10.times do |i|
   sleep 1
@@ -14,6 +16,6 @@ KEY = ARGV[2]
   end
 end
 
-upload_files(HOST, USER, KEY, DEFAULT_UPLOAD_DIR)
+upload_files(HOST, USER, KEY, DIR)
 
-execute_commands(HOST, USER, KEY, DEFAULT_EXE_FILE)
+execute_commands(HOST, USER, KEY, EXE)

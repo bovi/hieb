@@ -7,7 +7,7 @@ Simple deployment tool using SSH and supporting command execution and file uploa
 Call the `hieb` command for one server like this:
 
 ```
-hieb 192.168.0.1 user password
+hieb 192.168.0.1 user password [[PATH TO UPLOAD DIR] [PATH TO EXE YAML]]
 ```
 
 or

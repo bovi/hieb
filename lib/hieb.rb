@@ -9,7 +9,7 @@ DEFAULT_EXE_FILE = '_exe.json'
 
 def ping ip
   begin
-    r = `ping -c 1 -t1 -W1 #{ip} |grep packets`
+    r = `ping -c 1 -t1 -W1 #{ip}|grep packets`
     r.match(/transmitted, (.*?) packets/)[1].to_i == 1
   rescue
     false
